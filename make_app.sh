@@ -55,7 +55,7 @@ cd ..
 
 #create run.py
 echo 'from app import app' >> run.py
-export FLASK_APP=run.py
+echo 'export FLASK_APP=run.py' >> venv/bin/activate
 echo "..done!"
 
 #save to git
@@ -64,6 +64,6 @@ git add .
 git commit -m "set up flask app"
 git push
 
-cd ..
 deactivate
+cd ..
 echo "Everything done!"
