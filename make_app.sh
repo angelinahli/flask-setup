@@ -20,6 +20,10 @@ echo "Setting up repository"
 git init
 echo "# $NAME" >> README.md
 echo "venv/*" >> .gitignore
+echo "__pycache__/*" >> .gitignore
+echo "*__pycache__/*" >> .gitignore
+echo "*.pyc" >> .gitignore
+
 git add .
 git commit -m "initial commit"
 git remote add origin $REPO
@@ -31,23 +35,26 @@ echo "Setting up directory structure"
 mkdir app/
 mkdir app/templates
 mkdir app/static
-mkdir tmp/
+mkdir program/
 echo "..done!"
 
 #create __init__.py and routes.py
 echo "Setting up basic files"
 cd app/
-echo -e "from flask import Flask\n\napp = Flask(__name__)\n" >> __init__.py
-echo "from app import routes" >> __init__.py
+echo -e 'from flask import Flask\n' >> __init__.py
+echo -e 'app = Flask(__name__)\n' >> __init__.py
+echo 'from app import routes' >> __init__.py
 
-echo -e "from app import app\n" >> routes.py
-echo -e "@app.route('/')\n@app.route('index')" >> routes.py
-echo -e "def index():\n\treturn 'Hello World!'" >> routes.py
+echo -e 'from app import app\n' >> routes.py
+echo '@app.route("/")' >> routes.py
+echo '@app.route("/index/")' >> routes.py
+echo 'def index():' >> routes.py
+echo '    return "Hello World"!' >> routes.py
 
 cd ..
 
 #create run.py
-echo "from app import app" >> run.py
+echo 'from app import app' >> run.py
 export FLASK_APP=run.py
 echo "..done!"
 
