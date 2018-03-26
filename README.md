@@ -1,14 +1,12 @@
 # flask-setup
 
-A repository with a very simple directory structure I can clone for future flask projects.
+A bash script you can use to set up a new flask app
 
 ## Setup
 
+1. download the file make_app.sh
+2. change the variables NAME and REPO to point at the name of your project and the project's git repository, respectively
+3. run: 
 ```bash
-cp -R flask-setup destination
-cd destination
-python3 -m venv venv
-echo 'export FLASK_APP=run.py' >> venv/bin/activate
-source venv/bin/activate
-pip install flask
+bash make_app.sh
 ```
