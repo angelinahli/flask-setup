@@ -41,11 +41,11 @@ echo "..done!"
 #create __init__.py and routes.py
 echo "Setting up basic files"
 cd app/
-echo -e 'from flask import Flask\n' >> __init__.py
-echo -e 'app = Flask(__name__)\n' >> __init__.py
+echo 'from flask import Flask\n' >> __init__.py
+echo 'app = Flask(__name__)\n' >> __init__.py
 echo 'from app import routes' >> __init__.py
 
-echo -e 'from app import app\n' >> routes.py
+echo 'from app import app\n' >> routes.py
 echo '@app.route("/")' >> routes.py
 echo '@app.route("/index/")' >> routes.py
 echo 'def index():' >> routes.py
@@ -57,7 +57,7 @@ cd ..
 echo 'from app import app' >> run.py
 
 #update venv/bin/activate
-echo '\n# user flask settings' >> venv/bin/activate
+echo '# user flask settings' >> venv/bin/activate
 echo 'export FLASK_APP=run.py' >> venv/bin/activate
 echo 'export FLASK_DEBUG=1' >> venv/bin/activate
 echo "..done!"
